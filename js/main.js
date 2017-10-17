@@ -7,8 +7,12 @@ var Page = (function() {
         },
         showOfflineWarning: function() {
             document.querySelector("#main").classList.add('doing')
-			// mostro template offline
-            var request = new XMLHttpRequest();
+	// mostro template offline
+	    var offlineMessageElement = document.createElement("div");
+	    offlineMessageElement.setAttribute("id", "offline");
+	    offlineMessageElement.innerHTML = "<p>Sei offline. Per favore, controlla la tua connessione</p>";
+	    document.getElementById("MainOnTop").appendChild(offlineMessageElement);
+		/*var request = new XMLHttpRequest();
             request.open('GET', './offline.html', true);
 
             request.onload = function() {
@@ -28,6 +32,7 @@ var Page = (function() {
                 console.log('Connection error');
             };
             request.send();
+	    */
         }
     }
 })();

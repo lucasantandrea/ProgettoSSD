@@ -100,8 +100,7 @@ var API = (function() {
             return new Promise(function(resolve, reject) {
                 var request = new XMLHttpRequest();
 				console.log('https://progettossd.azurewebsites.net/Solution/'+algorithm);
-				//request.open('GET', 'https://progettossd.azurewebsites.net/Solution/'+algorithm);
-				request.open('GET', 'http://localhost:52811/Solution/'+algorithm);
+				request.open('GET', 'https://progettossd.azurewebsites.net/Solution/'+algorithm);
 
                 request.onload = function() {
                     // success

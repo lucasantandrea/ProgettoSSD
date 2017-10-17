@@ -42,8 +42,7 @@ var API = (function() {
         self.getAll = function() {
             return new Promise(function(resolve, reject) {
                 var request = new XMLHttpRequest();
-				//request.open('GET', 'https://progettossd.azurewebsites.net/Read');
-				request.open('GET', 'http://localhost:52811/Read');
+				request.open('GET', 'https://progettossd.azurewebsites.net/Read');
 
                 request.onload = function() {
                     // success
@@ -82,8 +81,7 @@ var API = (function() {
 				
 
 				};
-				//request.open('POST', 'https://progettossd.azurewebsites.net/Update');
-				request.open('POST', 'http://localhost:52811/Update');
+				request.open('POST', 'https://progettossd.azurewebsites.net/Update');
 				request.setRequestHeader("Content-Type", "application/json");
 				var editGAP=JSON.parse(JSON.stringify(GAP));
 				

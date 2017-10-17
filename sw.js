@@ -1,5 +1,5 @@
 // utilizzo cacheName per cache versioning
-var cacheName = 'v4:static';
+var cacheName = 'v5:static';
 
 // installazione: metto in cache elementi statici (per funzionamento offline)
 self.addEventListener('install', function(e) {

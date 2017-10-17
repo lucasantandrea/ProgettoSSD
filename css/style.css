@@ -397,7 +397,7 @@ header h3 {
 #main textarea{
 	width:100%;
 }
-#main.loading div, #main.saving div, #main.saving textarea {
+#main.loading div, #main.loading textarea, #main.saving div, #main.saving textarea, #main.doing div, #main.doing textarea {
     opacity: 0.2;
 }
 

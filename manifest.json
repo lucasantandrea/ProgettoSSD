@@ -1,7 +1,7 @@
 {
-  "short_name": "Arrivals",
-  "name": "Arrivals at Sky High",
-  "description": "Progressive Web Application demonstration",
+  "short_name": "GAP",
+  "name": "Generalized assignment problem",
+  "description": "PWA for SS exam - 2017",
   "icons": [
     {
       "src": "launcher-icon.png",

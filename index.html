@@ -27,7 +27,13 @@
 				<input type="button" value="Variable neighborhood search" onclick="variableNeighborhoodSearch()" />
 			</div>
 			<textarea rows="30" cols="77" class="console" id="txt_console"></textarea>
-			<div id="myconsole"></div>
+			
+            <div class="buttons solution">
+				<input type="button" value="Solution Simulated annealing" onclick="API.loadSolution('simulated_annealing')" />
+				<input type="button" value="Solution Tabu search" onclick="API.loadSolution('tabu_search')" />
+				<input type="button" value="Solution Iterated local search" onclick="API.loadSolution('iterated_loacal_search')" />
+				<input type="button" value="Solution Variable neighborhood search" onclick="API.loadSolution('variiable_neighborhood_search')" />
+			</div>
 
         </div>
     </div>

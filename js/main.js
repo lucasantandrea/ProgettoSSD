@@ -12,27 +12,6 @@ var Page = (function() {
 	    offlineMessageElement.setAttribute("id", "offline");
 	    offlineMessageElement.innerHTML = "<p>Sei offline. Per favore, controlla la tua connessione</p>";
 	    document.getElementById("MainOnTop").appendChild(offlineMessageElement);
-		/*var request = new XMLHttpRequest();
-            request.open('GET', './offline.html', true);
-
-            request.onload = function() {
-                if (request.status === 200) {
-                    // creo elemento HTML con info su offline
-                    var offlineMessageElement = document.createElement("div");
-                    offlineMessageElement.setAttribute("id", "offline");
-                    offlineMessageElement.innerHTML = request.responseText;
-                    document.getElementById("MainOnTop").appendChild(offlineMessageElement);
-                } else {
-                    console.log('Error retrieving offline.html');
-                }
-            };
-
-            request.onerror = function() {
-                // network errors
-                console.log('Connection error');
-            };
-            request.send();
-	    */
         }
     }
 })();

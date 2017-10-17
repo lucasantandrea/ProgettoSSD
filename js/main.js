@@ -17,7 +17,7 @@ var Page = (function() {
                     var offlineMessageElement = document.createElement("div");
                     offlineMessageElement.setAttribute("id", "offline");
                     offlineMessageElement.innerHTML = request.responseText;
-                    document.getElementById("main").appendChild(offlineMessageElement);
+                    document.getElementById("MainOnTop").appendChild(offlineMessageElement);
                 } else {
                     console.log('Error retrieving offline.html');
                 }

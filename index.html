@@ -1,1 +1,40 @@
-TODO: application creation in progress...
+<!DOCTYPE html>
+<html class="js no-touchevents" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generalized assignment problem</title>
+    <link async rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,600,300italic,600italic" rel="stylesheet" type="text/css">
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#29BDBB">
+    <link rel="icon" sizes="192x192" href="./icon_graph.png">
+</head>
+
+<body>
+    <header>
+        <div class="content">
+            <h3>GAP</h3>
+        </div>
+    </header>
+    <div class="container">
+        <div id="main" class="content">
+            <div class="buttons">
+				<input type="button" value="Simulated annealing" onclick="simulatedAnnealing()" />
+				<input type="button" value="Tabu search" onclick="tabuSearch()" />
+				<input type="button" value="Iterated local search" onclick="IteratedLocalSearch()" />
+				<input type="button" value="Variable neighborhood search" onclick="variableNeighborhoodSearch()" />
+			</div>
+			<textarea rows="30" cols="77" class="console" id="txt_console"></textarea>
+			<div id="myconsole"></div>
+
+        </div>
+    </div>
+	
+	<script src="./js/main.js"></script>
+	<script src="./js/algorithms.js"></script>
+	
+</body>
+
+</html>

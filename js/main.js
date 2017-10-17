@@ -2,11 +2,11 @@ var Page = (function() {
     return {
         hideOfflineWarning: function() {
             // caricamento live data
-            document.querySelector("#main").classList.remove('loading')
+            document.querySelector("#main").classList.remove('doing')
             document.getElementById("offline").remove();
         },
         showOfflineWarning: function() {
-            document.querySelector("#main").classList.add('loading')
+            document.querySelector("#main").classList.add('doing')
 			// mostro template offline
             var request = new XMLHttpRequest();
             request.open('GET', './offline.html', true);

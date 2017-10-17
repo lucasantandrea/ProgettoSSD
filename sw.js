@@ -8,9 +8,8 @@ self.addEventListener('install', function(e) {
             return cache.addAll([
                 './',
                 './css/style.css',
-				'./js/main.js',
-                './css/fonts/roboto.woff',
-                './offline.html'
+		'./js/main.js',
+                './css/fonts/roboto.woff'
             ]).then(function() {
                 self.skipWaiting();
             });

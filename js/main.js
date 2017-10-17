@@ -38,11 +38,12 @@ var API = (function() {
     function apiService() {
         var self = this;
 
-        // retrieves all arrivals from the API
+		//ottengo dati di partenza
         self.getAll = function() {
             return new Promise(function(resolve, reject) {
                 var request = new XMLHttpRequest();
-		request.open('GET', 'https://progettossd.azurewebsites.net/Read');
+				//request.open('GET', 'https://progettossd.azurewebsites.net/Read');
+				request.open('GET', 'http://localhost:52811/Read');
 
                 request.onload = function() {
                     // success
@@ -81,7 +82,8 @@ var API = (function() {
 				
 
 				};
-				request.open('POST', 'https://progettossd.azurewebsites.net/Update');
+				//request.open('POST', 'https://progettossd.azurewebsites.net/Update');
+				request.open('POST', 'http://localhost:52811/Update');
 				request.setRequestHeader("Content-Type", "application/json");
 				var editGAP=JSON.parse(JSON.stringify(GAP));
 				
@@ -94,6 +96,35 @@ var API = (function() {
 				request.send(JSON.stringify(editGAP));
 			});
 		};
+		
+        //ottenimento della soluzione salvata
+		self.getSolution = function(algorithm) {
+            return new Promise(function(resolve, reject) {
+                var request = new XMLHttpRequest();
+				console.log('https://progettossd.azurewebsites.net/Solution/'+algorithm);
+				//request.open('GET', 'https://progettossd.azurewebsites.net/Solution/'+algorithm);
+				request.open('GET', 'http://localhost:52811/Solution/'+algorithm);
+
+                request.onload = function() {
+                    // success
+                    if (request.status === 200) {
+                        // resolve the promise with the parsed response text (assumes JSON)
+						console.log(JSON.parse(request.response));
+                        resolve(JSON.parse(request.response));
+                    } else {
+                        // error retrieving file
+                        reject(Error(request.statusText));
+                    }
+                };
+
+                request.onerror = function() {
+                    // network errors
+                    reject(Error("Network Error"));
+                };
+
+                request.send();
+            });
+        };
 	}
 
     // initialize the services and adapters
@@ -110,10 +141,10 @@ var API = (function() {
 				}
             });
         }, 
-		saveData: function(){
+		saveData: function(algorithm){
 			document.querySelector("#main").classList.add('saving');
 			console.log(document.querySelector("#main"));
-			apiService.salvataggioDb().then(function(response){
+			apiService.salvataggioDb(algorithm).then(function(response){
 				if(response.result==true){
 					console.log("Salvataggio eseguito correttamente");
 				}
@@ -122,7 +153,19 @@ var API = (function() {
 				}
 				document.querySelector("#main").classList.remove('saving');
 			});
-		}
+		},
+        loadSolution: function(algorithm) {
+            // retrieve all routes
+            document.querySelector("#main").classList.add('doing');
+			apiService.getSolution(algorithm).then(function(response) {
+				console.log("Soluzione ricevuta dal server");
+				println("Soluzione per " + algorithm);
+				console.log(response);
+				println(JSON.stringify(response));
+				println("-----");
+				document.querySelector("#main").classList.remove('doing');
+            });
+        }, 
     }
 
 })();
@@ -159,4 +202,8 @@ if (navigator.onLine) {
 
 function println(value){
 	document.getElementById("txt_console").value += value + "\r";
+}
+
+function solution(algorithm){
+	
 }
